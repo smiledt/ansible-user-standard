@@ -39,7 +39,7 @@ BSD
 Author Information
 ------------------
 
-Derek Smiley - Homelabber, Network Analyst, aspiring System Administrator/Ansible Automation Engineer
+Derek Smiley - Network Analyst, Homelabber, aspiring System Administrator/Ansible Automation Engineer
 
 Connect with me on LinkedIn - https://www.linkedin.com/in/derek-smiley/
 
