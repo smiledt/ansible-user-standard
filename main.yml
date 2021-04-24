@@ -3,4 +3,4 @@
   hosts: linux
   become: true
   roles:
-    - role: standard_user
+    - role: user-standard

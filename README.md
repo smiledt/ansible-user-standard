@@ -29,7 +29,7 @@ Example Playbook
       hosts: deploy
       become: true
       roles:
-        - role: standard_user
+        - role: user-standard
 
 License
 -------
