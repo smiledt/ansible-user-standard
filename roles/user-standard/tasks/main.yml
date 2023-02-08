@@ -1,6 +1,44 @@
 ---
 # tasks file for user-standard
 
+- block: # Admin user
+  - name: Ensure that the {{ standard_user }} account exists
+    user:
+      name: "{{ standard_user }}"
+      password: "{{ standard_pass | string | password_hash('sha512', 'standardsalt') }}"
+      state: present
+      update_password: on_create
+      groups: sudo
+      append: yes
+    when: not set_pass
+  - name: Ensure that the {{ standard_user }} account exists and reset the password
+    user:
+      name: "{{ standard_user }}"
+      password: "{{ standard_pass | string | password_hash('sha512', 'standardsalt') }}"
+      state: present
+      update_password: always
+      groups: sudo
+      append: yes
+    when: set_pass 
+  when: admin_user
+
+- block: # Non-admin user
+  - name: Ensure that the {{ standard_user }} account exists
+    user:
+      name: "{{ standard_user }}"
+      password: "{{ standard_pass | string | password_hash('sha512', 'standardsalt') }}"
+      state: present
+      update_password: on_create
+    when: not set_pass
+  - name: Ensure that the {{ standard_user }} account exists and reset the password
+    user:
+      name: "{{ standard_user }}"
+      password: "{{ standard_pass | string | password_hash('sha512', 'standardsalt') }}"
+      state: present
+      update_password: always
+    when: set_pass 
+  when: not admin_user
+
 - name: Set authorized SSH key for user {{ standard_user }}
   authorized_key:
     user: "{{ standard_user }}"
