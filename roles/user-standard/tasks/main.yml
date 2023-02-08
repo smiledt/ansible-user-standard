@@ -8,6 +8,7 @@
       password: "{{ standard_pass | string | password_hash('sha512', 'standardsalt') }}"
       state: present
       update_password: on_create
+      shell: /bin/bash
       groups: sudo
       append: yes
     when: not set_pass
@@ -17,6 +18,7 @@
       password: "{{ standard_pass | string | password_hash('sha512', 'standardsalt') }}"
       state: present
       update_password: always
+      shell: /bin/bash
       groups: sudo
       append: yes
     when: set_pass 
@@ -29,6 +31,7 @@
       password: "{{ standard_pass | string | password_hash('sha512', 'standardsalt') }}"
       state: present
       update_password: on_create
+      shell: /bin/bash
     when: not set_pass
   - name: Ensure that the {{ standard_user }} account exists and reset the password
     user:
@@ -36,6 +39,7 @@
       password: "{{ standard_pass | string | password_hash('sha512', 'standardsalt') }}"
       state: present
       update_password: always
+      shell: /bin/bash
     when: set_pass 
   when: not admin_user
 
