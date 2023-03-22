@@ -11,3 +11,7 @@ standard_pass: !vault |
           3566
 admin_user: false
 set_pass: false
+
+force_color_prompt: yes
+run_noninteractive: yes
+local_path: ~/.local/bin
