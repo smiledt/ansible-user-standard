@@ -50,3 +50,20 @@
     key: "{{ lookup('file', item) }}"
   with_fileglob:
     - files/*.pub
+
+- name: Template out the .bashrc file for user {{ standard_user }}
+  template:
+    src: bashrc.j2
+    dest: "/home/{{ standard_user }}/.bashrc"
+    owner: "{{ standard_user }}"
+    group: "{{ standard_user }}"
+    mode: '644'
+
+- name: Copy over the .bash_profile file for user {{ standard_user }}
+  copy:
+    src: bash_profile
+    dest: "/home/{{ standard_user }}/.bash_profile"
+    owner: "{{ standard_user }}"
+    group: "domain users"
+    mode: '644'
+    force: yes
