@@ -64,6 +64,6 @@
     src: bash_profile
     dest: "/home/{{ standard_user }}/.bash_profile"
     owner: "{{ standard_user }}"
-    group: "domain users"
+    group: "{{ standard_user }}"
     mode: '644'
     force: yes
