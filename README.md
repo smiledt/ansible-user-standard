@@ -1,7 +1,7 @@
 User-Standard
 =========
 
-This role deploys the standard user account on my newly created virtual machine. It also deploys ssh-keys for connections. 
+This role deploys the standard user account on my newly created virtual machine. It also deploys customizations and ssh-keys for connections. 
 
 Requirements
 ------------
